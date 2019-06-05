@@ -1,6 +1,7 @@
 import React from 'react'
 import { StyleSheet, View, Text, ActivityIndicator, ScrollView, Image } from 'react-native'
 import { getFilmDetailFromApi,getImageFromApi } from '../API/TMDBApi'
+import { connext } from 'react-redux'
 
 class FilmDetail extends React.Component {
 
@@ -82,7 +83,7 @@ class FilmDetail extends React.Component {
         }
     }
     render() {
-       console.log(this.state.film)
+       console.log(this.props)
         return (
             <View style = {styles.main_container}>
                 {this._displayLoading()}
@@ -143,4 +144,11 @@ const styles = StyleSheet.create({
    }
 })
 
+const mapStateToProps = (state) => {
+    return {
+        favoriteFIlm: state.favoriteFIlm
+    }
+}
+
 export default FilmDetail
+export default connect(mapStateToProps)(FilmDetail)

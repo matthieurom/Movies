@@ -19,7 +19,7 @@ function toggleFavorite(state = initialState, action) {
                 // Le film n'est pas dans la liste, on l'ajoute
                 nextState = {
                     ...state,
-                    favoriteFilm: [...state.favoriteFilm, aciton.value]
+                    favoriteFilm: [...state.favoriteFilm, action.value]
                 }
             }
             return nextState || state // renvoie l'objet nextState si celui-ci n'est pas undefined, sinon 
